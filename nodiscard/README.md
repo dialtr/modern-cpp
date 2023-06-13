@@ -35,11 +35,13 @@ Imagine a wrapper function that allocates a file handle or socket; unless
 the function returns a unique pointer or shared pointer to the object, not
 assigning the value would definitely mean the handle was leaked:
 
-    // Function prototype
-    int OpenFile(const char* filename);
+```C++
+// Function prototype
+int OpenFile(const char* filename);
 
-    // A leak!
-    OpenFile("foo.txt");
+// A leak!
+OpenFile("foo.txt");
+```
 
 One might also argue that **[[nodiscard]]** could be applied *liberally*
 in any case where a function returns an error code. After all, do you want
