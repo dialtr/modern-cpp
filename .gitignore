@@ -1,0 +1,10 @@
+# Ignore target name
+demo
+
+# Ignore object files
+*.o
+
+# Ignore VIM editor temp. files
+*~
+.*~
+
