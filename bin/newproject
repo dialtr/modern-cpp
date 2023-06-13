@@ -1,0 +1,83 @@
+#!/bin/bash
+#
+# newproject
+#
+# Copies the files from the hidden .template directory into a directory
+# named by the user. Will not overwrite existing directories.
+#
+
+# Array holding template files: update if more are added.
+template_files=("README.md" "Makefile" "main.cc")
+
+# Initialize some flags used to indicate dir/file creation and success.
+created=0
+success=0
+
+# Always runs at exit via a trap handler
+function cleanup {
+	# If successful, we do nothing.
+	if [ $success -eq 1 ]; then
+		exit "$?"
+	fi
+
+	# If not successful and we created something, delete created stuff.
+	if [ $created -eq 1 ]; then
+		rm -r -f "$projname"
+	fi
+}
+
+# Install the trap handler
+trap cleanup EXIT
+
+# Check for proper number of arguments and display usage if not correct.
+if [ "$#" -ne 1 ]; then
+	echo "Instantiate a new project from the template."
+	echo "Usage: newproject.sh <project-name>"
+	exit 7 # E2BIG: Argument list too long
+fi
+
+# The first and only argument is the name of the project we will create.
+projname="$1"
+
+# Check to see if we're running from the correct location.
+# TODO(tdial): I am sure there is a better way to do this.
+CWD=`pwd`
+CWD=`basename $CWD`
+if [ "$CWD" != "modern-cpp" ]; then
+	echo "'newproject' must be run from the root of the 'modern-cpp' repository."
+	exit 1 # EPERM: Operation not permitted
+fi
+
+# Ensure the project directory does not already exist.
+if [ -e "$projname" ]; then
+	echo "Can't create directory '$projname' because it already exists."
+	exit 17 # EEXIST: File exists
+fi
+
+# Attempt to create a directory for the project. If this fails, say why.
+mkdir "$projname"
+if [ ! -d "$projname" ]; then
+	echo "Failed to create directory."
+	exit $?
+fi
+
+# Set flag for trap handler to indicated we created the directory.
+created=1
+
+# Copy the template files.
+for file in "${template_files[@]}"
+do
+	# Attempt to copy the file. If it fails, exit (which runs trap handler.)
+	echo "Copying '$file' ...."
+	cp ".template/$file" "$projname"
+	if [ "$?" -ne 0 ]; then
+		exit "$?"
+	fi
+done
+
+echo "New project '$projname' created successfully."
+
+# Set flag for trap handler to indicate we succeeded.
+success=1
+
+exit 0
