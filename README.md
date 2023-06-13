@@ -17,6 +17,13 @@ Primarily, my goal here is selfish: I want to learn about modern C++, and
 since I find that the best way to learn is by doing, I've created this repo
 as a forcing function to write "modern" C++.
 
+## Contributing
+
+As stated, this is a personal project and my main goal is to learn, and gain
+experience with modern C++ features. However, if you notice problems with code
+or inaccuracies in my explanations, I would definitely want to hear from you.
+Feel free to reach out in that case!
+
 ## Authors
 Tom R. Dial <thomas.r.dial@gmail.com>
 
