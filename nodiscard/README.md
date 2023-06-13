@@ -9,19 +9,19 @@ that the result of the function should be used. If not, the compiler is
 Example:
 
 ```C++
-    [[nodiscard]] int AllocateResource) {
-      // Pretend to allocate a valuable resource.
-      return 1;
-    }
+[[nodiscard]] int AllocateResource) {
+  // Pretend to allocate a valuable resource.
+  return 1;
+}
 
-    // Not using result is a warning
-    AllocateResource();
+// Not using result is a warning
+AllocateResource();
 
-    // Good: using return value.
-    const int r = AllocateResource();
+// Good: using return value.
+const int r = AllocateResource();
 
-    // Okay: Indicate we "know what we are doing" by casting to void.
-    (void)AllocateResource();
+// Okay: Indicate we "know what we are doing" by casting to void.
+(void)AllocateResource();
 ```
 
 ## Commentary
