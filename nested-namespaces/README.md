@@ -7,24 +7,23 @@ It is now possible to declare namespaces in a nested way, to save typing.
 Example:
 
 ```C++
-    // Before C++17
-    namespace org {
-    namespace dial {
-    namespace demo {
+// Before C++17
+namespace org {
+namespace dial {
+namespace demo {
 
-      // ...stuff
+  // ...stuff
 
-    }  // namespace demo
-    }  // namespace dial
-    }  // namespace org
+}  // namespace demo
+}  // namespace dial
+}  // namespace org
 
+// After C++17
+namespace org::dial::demo {
 
-    // After C++17
-    namespace org::dial::demo {
+// ...stuff
 
-      // ...stuff
-
-    }  // namespace org::dial::demo
+}  // namespace org::dial::demo
 ```
 
 ## Version Supported
