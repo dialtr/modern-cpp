@@ -2,7 +2,7 @@
 
 ## About
 
-Applying **[[nodiscard]]** attribute to a return value informs the compiler
+Applying the **[[nodiscard]]** attribute to a return value informs the compiler
 that the result of the function should be used. If not, the compiler is
 "encouraged to issue a warning."
 
