@@ -14,7 +14,7 @@ Example:
   return 1;
 }
 
-// Not using result is a warning
+// Not using the result is a warning
 AllocateResource();
 
 // Good: using the return value.
