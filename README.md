@@ -17,6 +17,13 @@ Primarily, my goal here is selfish: I want to learn about modern C++, and
 since I find that the best way to learn is by doing, I've created this repo
 as a forcing function to write "modern" C++.
 
+## Items
+| **Item** | Description |
+| -------- | ----------- |
+| [The **auto** keyword](/items/auto) | Make declaring complex variables easy. | 
+| [Nested namespaces](/items/nested-namespaces) | Make declaring nested namespaces easier. |
+| [The **[[nodiscard]]** attribute](/items/nodiscard) | Inform callers that return values should be used. |
+
 ## Contributing
 
 As stated, this is a personal project and my main goal is to learn and gain

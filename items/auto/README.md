@@ -1,4 +1,4 @@
-# auto
+# The auto keyword
 
 ## About
 
