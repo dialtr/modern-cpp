@@ -17,7 +17,7 @@ Example:
 // Not using result is a warning
 AllocateResource();
 
-// Good: using return value.
+// Good: using the return value.
 const int r = AllocateResource();
 
 // Okay: Indicate we "know what we are doing" by casting to void.
