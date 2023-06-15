@@ -1,4 +1,4 @@
-# Nested Namespace
+# Nested namespaces
 
 ## About
 
