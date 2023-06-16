@@ -23,7 +23,7 @@ as a forcing function to write "modern" C++.
 | [The **auto** keyword](/items/auto) | Make declaring complex variables easy. | 
 | [Nested namespaces](/items/nested-namespaces) | Make declaring nested namespaces easier. |
 | [The **[[nodiscard]]** attribute](/items/nodiscard) | Inform callers that return values should be used. |
-| [Ranged-based for loops](/items/ranged-for) | Make looping over containers easier. |
+| [Range-based for loops](/items/ranged-for) | Make looping over containers easier. |
 
 ## Contributing
 
