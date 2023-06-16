@@ -2,7 +2,7 @@
 #
 # newproject
 #
-# Copies the files from the hidden .template directory into a directory
+# Copies the files from the hidden template directory into a directory
 # named by the user. Will not overwrite existing directories.
 #
 
@@ -55,8 +55,8 @@ if [ -e "$projname" ]; then
 fi
 
 # Attempt to create a directory for the project. If this fails, say why.
-mkdir "$projname"
-if [ ! -d "$projname" ]; then
+mkdir -p "items/$projname"
+if [ ! -d "items/$projname" ]; then
 	echo "Failed to create directory."
 	exit $?
 fi
@@ -69,7 +69,7 @@ for file in "${template_files[@]}"
 do
 	# Attempt to copy the file. If it fails, exit (which runs trap handler.)
 	echo "Copying '$file' ...."
-	cp ".template/$file" "$projname"
+	cp "template/$file" "items/$projname"
 	if [ "$?" -ne 0 ]; then
 		exit "$?"
 	fi
